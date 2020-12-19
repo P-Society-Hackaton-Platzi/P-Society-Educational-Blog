@@ -8,7 +8,7 @@
             <a class="btn btn-success btn-block mt-5 w-25 h-25 mx-auto d-block "  href={% url 'new_question' %} type="submit">Pregunta</a>
         </div>
         {% for question in questions %}
-            <div class="border rounded pl-5 pr-5 mt-4 shadow-sm">
+            <div class="border rounded pl-5 pr-5 mt-4 mb-5 shadow-sm">
                 <div class="d-flex justify-content-between mt-5 ">
                     <div class="d-flex align-items-center mb-3">
                         {% if question.author.picture %}
@@ -18,7 +18,7 @@
                         {% endif %}
                         <h4 class="mr-3">{{ question.author }}</h4>
                         <p class="mr-3 mt-3">{{ question.post_date }}</p>
-                        <p class="mr-3 mt-3">{{ question.technology_tag }}</p>
+                        <p class="mr-3 mt-3"><i>{{ question.technology_tag }}</i></p>
                     </div>
                     <div class="image_videocall">
                         <a href="{{ question.author.calendar }}"><img src="{% static "img/meet.png"%}" alt="meet"></a>

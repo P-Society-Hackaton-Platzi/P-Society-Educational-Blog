@@ -60,3 +60,34 @@ def logout_view(request):
     """ Logout a user """
     logout(request)
     return redirect('login')
+
+@login_required
+def update_profile(request):
+
+    profile = resquest.user.profile
+
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            data = form.cleaned_data
+
+            profile.picture = data['picture']
+            profile.calendar = data['calendar']
+            profile.availability = data['availability']
+            profile.save()
+            messages.success(request, 'Your profile has been updated!')
+
+            return redirect('feed')
+    else:
+        form = ProfileForm()
+
+    return render(
+        request=request,
+        template_name='users/update_profile.html',
+        context={
+            'profile': profile,
+            'user': request.user,
+            'form': form
+        }
+    )

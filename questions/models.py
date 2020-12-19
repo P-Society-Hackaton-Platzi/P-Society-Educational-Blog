@@ -25,10 +25,22 @@ class Question(models.Model):
         ('English','English')
     ]
 
+    TIME_CHOICES=[
+        ('5 min','5 min'),
+        ('15 min','15 min'),
+        ('30 min','30 min'),
+        ('45 min','45 min'),
+        ('60 min','60 min'),
+    ]
+
     author = models.ForeignKey("users.Profile", on_delete=models.CASCADE)
     description = models.TextField()
     post_date = models.DateTimeField(auto_now_add=True)
-    time_to_solve = models.DurationField()
+    time_to_solve = models.CharField(
+        choices=TIME_CHOICES,
+        max_length=60,
+        null=True
+    )
     technology_tag = models.CharField(
         choices=TECHNOLOGY_CHOICES,
         max_length=60,

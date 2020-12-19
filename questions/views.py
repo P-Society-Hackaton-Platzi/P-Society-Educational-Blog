@@ -32,11 +32,11 @@ def new_question(request):
 
         # import ipdb
         # ipdb.set_trace()
-        time_to_solve = parse_duration(form_data['time_to_solve'])
+        # time_to_solve = parse_duration(form_data['time_to_solve'])
 
         question = Question.objects.create(
             author=form_data['author'],
-            time_to_solve = time_to_solve,
+            time_to_solve = form_data['time_to_solve'],
             description = form_data['description'],
             technology_tag = form_data['technology'],
         )

@@ -11,17 +11,25 @@ TECHNOLOGY_CHOICES = [
     ('English','English')
 ]
 
+TIME_CHOICES=[
+    ('5 min','5 min'),
+    ('15 min','15 min'),
+    ('30 min','30 min'),
+    ('45 min','45 min'),
+    ('60 min','60 min'),
+]
+
+
 class QuestionForm(forms.Form):
     ''' Question model form '''
 
-    time_to_solve = forms.DurationField(
-        widget=forms.TextInput(
-            attrs={
-                'placeholder': '¿Cuanto tiempo crees necesitar para solucionar tu duda?',
-                'class': 'form-control',
-                'required': True
-                }
-        )
+    time_to_solve = forms.ChoiceField(
+        widget=forms.Select(
+            attrs = {
+                'class':'form-control'
+            }),
+        choices=TIME_CHOICES,
+        required = True,
     )
 
     description = forms.CharField(min_length=4,
@@ -38,7 +46,7 @@ class QuestionForm(forms.Form):
     technology = forms.ChoiceField(
         widget=forms.Select(
             attrs = {
-                'class':'form-control'    
+                'class':'form-control'
             }),
         choices=TECHNOLOGY_CHOICES,
         required = True,

@@ -2,21 +2,22 @@
 {% load static %}
 
 {% block container %}
-    <div class="container-sm border rounded mt-5 p-3">
+    <div class="container-sm border rounded mt-5 p-3 mb-5">
         <div class="ml-5 mt-5 d-flex align-items-center justify-content-start">
             {% if question.author.picture %}
                 <img src="{{ question.author.picture.url }}" class="mr-3 rounded-circle" height="50" />
             {% else %}
                 <img src="{% static 'img/not_user.png' %}" class="mr-3 rounded-circle" height="50" />
             {% endif %}
-            <p class="mr-3">{{ question.author.user.username }}</p>
+            <h5 class="mr-3">{{ question.author.user.username }}</h5>
             <p class="mr-3">{{ question.post_date }}</p>
+            <p class="mr-3"><i>{{ question.technology_tag }}</i></p>
         </div>
         <h3 class="ml-5 mr-5">{{question.description}}</h3>
 
-
+        <div class="d-flex flex-column justify-content-center">
         {% for comment in comments %}
-            <div>
+            <div class="bg-light rounded  pt-1 pb-1 ml-5 mt-3 mr-5">
                 <div class="ml-5 mt-5 d-flex align-items-center justify-content-start">
                     {% if question.author.picture %}
                         <img src="{{ comment.author.picture.url }}" class="mr-3 rounded-circle" height="50" />
@@ -29,6 +30,8 @@
                     <p class="ml-5 mt-3 mr-3 w-75"> {{comment.content}}</p>
             </div>
         {% endfor %}
+        </div>
+
 
             <form class="mt-5" method="POST" action="{% url 'question_detail' id=question.id %}">
                 {% csrf_token %}
