@@ -19,9 +19,9 @@ def login_view(request):
 
         if user:
             login(request, user)
-            return redirect('q_feeed')
+            return redirect('q_feed')
         else:
-            return render(request,'users/login.html',{'error':'Invalid username and password'})
+            return render(request,'users/singin.html',{'error':'Invalid username and password'})
 
     return render(request,'users/singin.html')
 
@@ -54,3 +54,8 @@ def sing_up_view(request):
     return render(request,'users/singup.html')
 
 
+@login_required
+def logout_view(request):
+    """ Logout a user """
+    logout(request)
+    return redirect('login')
