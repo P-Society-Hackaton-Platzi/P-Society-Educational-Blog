@@ -53,6 +53,6 @@ def new_question(request):
 def question_detail(request, id):
     # import ipdb ; ipdb.set_trace()
     question = Question.objects.get(id=id)
-    comments = Comment.objects.all()
+    comments = Comment.objects.all().filter(question = id)
 
     return render(request,'questions/question_detail.html',{'question':question, 'comments':comments})
