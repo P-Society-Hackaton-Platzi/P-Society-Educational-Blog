@@ -4,7 +4,7 @@ from questions.models import SolveForm, Question, Comment
 from users.models import Profile
 
 
-from django.db.utils import IntegrityError
+
 from questions.forms import QuestionForm
 from django.utils.dateparse import parse_duration
 
