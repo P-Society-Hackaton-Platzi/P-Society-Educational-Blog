@@ -1,11 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Questions Feed</h1>
-</body>
-</html>
+{% extends "questions/base.html" %}
+{% load static %}
+
+{% block container %}
+    <div class="container">
+        <div class="d-flex align-items-end">
+            <h2 class="mt-5 mb-3">Sientete seguro de hacer una pregunta, ¿En que podemos ayudarte hoy?</h2>
+            <a class="btn btn-success btn-block mt-5 w-25 h-25 mx-auto d-block "  href={% url 'new_question' %} type="submit">Pregunta</a>
+        </div>
+        {% for question in questions %}
+            <div class="border rounded pl-5 pr-5 mt-4 shadow-sm">
+                <div class="d-flex justify-content-between mt-5 ">
+                    <div class="d-flex align-items-center mb-3">
+                        {% if question.author.picture %}
+                            <img src="{{ question.author.picture.url }}" class="mr-3 rounded-circle" height="50" />
+                        {% else%}
+                            <img src="{% static 'img/user.png' %}" class="mr-3 rounded-circle" height="50" />
+                        {% endif %}
+                        <h4 class="mr-3">{{ question.author }}</h4>
+                        <p class="mr-3 mt-3">{{ question.post_date }}</p>
+                        <p class="mr-3 mt-3">{{ question.technology_tag }}</p>
+                    </div>
+                    <div class="image_videocall">
+                        <a href="{{ question.author.calendar }}"><img src="{% static "img/meet.png"%}" alt="meet"></a>
+                    </div>
+                </div>
+                <div class="question_content">
+                    <h5>{{ question.description }}</h5>
+                </div>
+                <div class="d-flex align-items-center justify-content-end">
+                    <div class="d-flex align-items-start">
+                        <p class="mt-5 mr-3 text-right">Time to solve this problem {{ question.time_to_solve }}</p>
+                        <a class="btn btn-success btn-block mt-5 w-50 mx-auto d-block" href={% url 'question_detail' id=question.id %}>Lest Help</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock container %}

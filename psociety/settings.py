@@ -152,7 +152,7 @@ MEDIA_URL = '/media/'
 LOGIN_URL = 'login/'
 
 cloudinary.config(
-    cloud_name=os.getenv("CLOUD_NAME"),
-    api_key = os.getenv("API_KEY"),
-    api_secret = os.getenv("API_SECRET"),
+    cloud_name="dnxuwqcyh",
+    api_key = "248255913247933",
+    api_secret = "UFWw9DxIPQaIxjDRBEibmzjf1U0",
 )

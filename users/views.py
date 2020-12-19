@@ -19,7 +19,7 @@ def login_view(request):
 
         if user:
             login(request, user)
-            return redirect('q_feed')
+            return redirect('q_feeed')
         else:
             return render(request,'users/login.html',{'error':'Invalid username and password'})
 

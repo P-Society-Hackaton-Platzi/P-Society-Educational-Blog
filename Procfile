@@ -1,0 +1,1 @@
+web: gunicorn utgram.wsgi --log-file -
