@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 # Models
 from django.contrib.auth.models import User
 from users.models import Profile
+from django.db.utils import IntegrityError
 
 
 def login_view(request):
@@ -39,7 +40,7 @@ def sing_up_view(request):
         try:
             user = User.objects.create_user(username=username, password=password)
         except IntegrityError:
-            return render(request, 'users/signup.html', {'error': 'Username already taken'})
+            return render(request, 'users/singup.html', {'error': 'Username already taken'})
 
         user.first_name = request.POST['first_name']
         user.last_name = request.POST['last_name']
