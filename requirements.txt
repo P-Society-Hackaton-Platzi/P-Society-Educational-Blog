@@ -7,8 +7,6 @@ decorator==4.4.2
 dj-database-url==0.5.0
 Django==3.1.2
 gunicorn==20.0.4
-ipython==7.19.0
-ipython-genutils==0.2.0
 jedi==0.17.2
 parso==0.7.1
 pickleshare==0.7.5
@@ -19,8 +17,6 @@ Pygments==2.7.3
 python-decouple==3.3
 pytz==2020.1
 six==1.15.0
-sqlparse==0.4.1
-traitlets==5.0.5
 urllib3==1.26.0
 wcwidth==0.2.5
 whitenoise==5.2.0
