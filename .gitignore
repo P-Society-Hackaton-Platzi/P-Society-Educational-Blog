@@ -8,7 +8,7 @@
 *.pyc
 __pycache__/
 local_settings.py
-db.sqlite3
+
 db.sqlite3-journal
 media
 
@@ -588,5 +588,3 @@ eventup/media/
 # Environment
 .envs/
 .vscode/
-users/migrations/
-questions/migrations/
