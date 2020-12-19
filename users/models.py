@@ -7,14 +7,14 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 
-class Profile(models.model):
+class Profile(models.Model):
     ''' Profile model extends from User base model '''
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     picture = CloudinaryField('image')
     menthor_points = models.IntegerField()
     calendar = models.URLField(max_length=255)
-    availability = models.BooleanField(defautl=True)
+    availability = models.BooleanField(default=True)
 
 
     def __str__(self):
