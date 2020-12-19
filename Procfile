@@ -1,1 +1,1 @@
-web: gunicorn utgram.wsgi --log-file -
+web: gunicorn psociety.wsgi --log-file -
