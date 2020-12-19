@@ -12,7 +12,7 @@ class Profile(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     picture = CloudinaryField('image')
-    menthor_points = models.IntegerField()
+    menthor_points = models.IntegerField(default=0)
     calendar = models.URLField(max_length=255)
     availability = models.BooleanField(default=True)
 
