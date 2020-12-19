@@ -1,0 +1,28 @@
+{% extends "users/base.html" %}
+
+{% block head_content %}
+    <title>Sign Up</title>
+{% endblock head_content %}
+
+{% block container %}
+    <div class="container d-flex mt-5 p-0 rounded border shadow">
+        <div class="container p-5">
+            <img class="mx-auto d-block" src="https://res.cloudinary.com/dnxuwqcyh/image/upload/v1608369323/logotype_btvygw.png" alt="logo">
+            <h3 class="mt-5 text-center">Registrate</h3>
+            <form method="POST" action="#">
+                {% csrf_token %}
+                <div class="form-group mt-4">
+                    <input class="form-control mb-3 w-75 mx-auto d-block" type="text" placeholder="First name" name="first_name" required="true"/>
+                    <input class="form-control mb-3 w-75 mx-auto d-block" type="text" placeholder="Last name" name="last_name" required="true"/>
+                    <input class="form-control mb-3 w-75 mx-auto d-block" type="text" placeholder="User name" name="username" required="true"/>
+                    <input class="form-control mb-3 w-75 mx-auto d-block" type="text" placeholder="Email" name="email" required="true"/>
+                    <input class="form-control mb-3 w-75 mx-auto d-block" type="password" placeholder="Password" name="password" required="true"/>
+                    <input class="form-control w-75 mx-auto d-block" type="password" placeholder="Confirm Password" name="password_confirm" required="true"/>
+                </div>
+            <button class="btn btn-success btn-block mt-4 w-50 mx-auto d-block" type="submit">Crear cuenta</button>
+
+            </form>
+        </div>
+        <img class="rounded float-end w-100" src="https://res.cloudinary.com/dnxuwqcyh/image/upload/v1608369073/signup-image_ebx6pr.jpg" alt="image logo">
+    </div>
+{% endblock container %}
