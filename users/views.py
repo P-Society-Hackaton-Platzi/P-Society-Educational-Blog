@@ -3,11 +3,14 @@
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.db.utils import IntegrityError
 
 # Models
 from django.contrib.auth.models import User
 from users.models import Profile
-from django.db.utils import IntegrityError
+
+#Forms
+from users.forms import ProfileForm
 
 
 def login_view(request):
@@ -64,7 +67,7 @@ def logout_view(request):
 @login_required
 def update_profile(request):
 
-    profile = resquest.user.profile
+    profile = request.user.profile
 
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES)
@@ -76,9 +79,8 @@ def update_profile(request):
             profile.calendar = data['calendar']
             profile.availability = data['availability']
             profile.save()
-            messages.success(request, 'Your profile has been updated!')
 
-            return redirect('feed')
+            return redirect('q_feed')
     else:
         form = ProfileForm()
 

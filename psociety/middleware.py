@@ -12,7 +12,7 @@ class ProfileCompleteMiddleware:
         if not request.user.is_anonymous:
             if not request.user.is_staff:
                 profile = request.user.profile
-                if not profile.picture or not profile.bio:
+                if not profile.picture or not profile.calendar:
                     if request.path not in [reverse('update_profile'), reverse('logout')]:
                         return redirect('update_profile')
 
