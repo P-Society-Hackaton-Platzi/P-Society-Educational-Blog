@@ -25,7 +25,7 @@ class QuestionForm(forms.Form):
     )
 
     description = forms.CharField(min_length=4,
-        max_length=50,
+        max_length=500,
         widget=forms.TextInput(
             attrs={
                 'placeholder': 'Haz tu pregunta',

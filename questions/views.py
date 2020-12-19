@@ -55,4 +55,16 @@ def question_detail(request, id):
     question = Question.objects.get(id=id)
     comments = Comment.objects.all().filter(question = id)
 
+    if request.method == 'POST':
+        author = Profile.objects.get(id=request.user.profile.id)
+        content = request.POST['content']
+
+        comment = Comment.objects.create(
+            author=author,
+            question=question,
+            content = content,
+        )
+
+        return redirect('question_detail', id=id)
+
     return render(request,'questions/question_detail.html',{'question':question, 'comments':comments})

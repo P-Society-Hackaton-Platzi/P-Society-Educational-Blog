@@ -1,6 +1,13 @@
 {% load static %}
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #121F3D;" id="main-navbar">
     <div class="container-fluid">
-        <img class='d-inline-block align-top' height='40' src="https://res.cloudinary.com/dnxuwqcyh/image/upload/v1608374243/logotype_white_cxratk.png" alt="logo">
+        <a href="{% url 'q_feed' %}">
+            <img class='d-inline-block align-top' height='40' src="https://res.cloudinary.com/dnxuwqcyh/image/upload/v1608374243/logotype_white_cxratk.png" alt="logo">
+        </a>
+    </div>
+    <div>
+        <a href="{% url 'logout' %}">
+            <img class='d-inline-block align-top' height='40' src="{% static 'img/logout.png' %}" alt="logo">
+        </a>
     </div>
 </nav>
