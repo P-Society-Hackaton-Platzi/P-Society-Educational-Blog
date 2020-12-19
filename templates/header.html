@@ -5,9 +5,14 @@
             <img class='d-inline-block align-top' height='40' src="https://res.cloudinary.com/dnxuwqcyh/image/upload/v1608374243/logotype_white_cxratk.png" alt="logo">
         </a>
     </div>
-    <div>
+    <div class= "d-flex align-items-center">
         <a href="{% url 'logout' %}">
             <img class='d-inline-block align-top' height='40' src="{% static 'img/logout.png' %}" alt="logo">
         </a>
+            {% if request.user.profile.picture %}
+                <a href="{% url 'update_profile' %}"><img src="{{ request.user.profile.picture.url }}" class="mr-3 rounded-circle" height="40" /></a>
+            {% else%}
+                <a href="{% url 'update_profile' %}"><img src="{% static 'img/User_white.png' %}" class="mr-3 rounded-circle" height="40" /></a>
+            {% endif %}
     </div>
 </nav>
