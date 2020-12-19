@@ -7,7 +7,7 @@
             {% if question.author.picture %}
                 <img src="{{ question.author.picture.url }}" class="mr-3 rounded-circle" height="50" />
             {% else%}
-                <img src="{% static 'img/user.png' %}" class="mr-3 rounded-circle" height="50" />
+                <img src="https://res.cloudinary.com/dnxuwqcyh/image/upload/v1608407265/icons8-male-user-50_w06dh1.png" class="mr-3 rounded-circle" height="50" />
             {% endif %}
             <p class="mr-3">{{ question.author.user.username }}</p>
             <p class="mr-3">{{ question.post_date }}</p>
@@ -18,7 +18,7 @@
                 {% if question.author.picture %}
                     <img src="{{ comment.author.picture.url }}" class="mr-3 rounded-circle" height="50" />
                 {% else%}
-                    <img src="{% static 'img/user.png' %}" class="mr-3 rounded-circle" height="50" />
+                    <img src="https://res.cloudinary.com/dnxuwqcyh/image/upload/v1608407265/icons8-male-user-50_w06dh1.png" class="mr-3 rounded-circle" height="50" />
                 {% endif %}
                 <p class="mr-3">{{ comment.author.user.username }}</p>
                 <p class="mr-3">{{ comment.post_date }}</p>
